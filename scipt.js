@@ -1,353 +1,273 @@
-const state = {
+const game = {
 
   food: 70,
   nature: 70,
   water: 70,
-  health: 70,
-  score: 0
+  health: 70
 };
 
 const events = [
 
   {
-    title: "Insetos na Plantação",
+    title: "Insetos atacando a plantação",
 
-    text:
-      "Os agricultores perceberam insetos atacando os alimentos da comunidade. Alguns sugerem usar agrotóxicos fortes.",
+    description:
+    "Os agricultores descobriram pragas nas verduras da comunidade.",
 
     image:
-      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop",
 
-    choices: [
+    option1: {
+      text: "Usar controle biológico natural",
 
-      {
-        text: "Usar controle biológico natural",
-
-        effects: {
-          food: 8,
-          nature: 12,
-          water: 8,
-          health: 10,
-          score: 15
-        },
-
-        message:
-          "Métodos naturais protegeram a plantação sem contaminar o solo."
+      effects: {
+        food: 8,
+        nature: 12,
+        water: 8,
+        health: 10
       },
 
-      {
-        text: "Aplicar agrotóxicos químicos",
+      message:
+      "Métodos naturais protegeram a plantação sem contaminar o ambiente."
+    },
 
-        effects: {
-          food: 12,
-          nature: -22,
-          water: -18,
-          health: -20,
-          score: 3
-        },
+    option2: {
+      text: "Aplicar agrotóxicos químicos",
 
-        message:
-          "Os agrotóxicos aumentaram a produção rapidamente, mas prejudicaram a água, o solo e a saúde das pessoas."
-      }
+      effects: {
+        food: 12,
+        nature: -20,
+        water: -18,
+        health: -22
+      },
 
-    ]
+      message:
+      "Os venenos aumentaram a produção rapidamente, mas contaminaram solo e água."
+    }
   },
 
   {
-    title: "Contaminação da Água",
+    title: "Contaminação do rio",
 
-    text:
-      "Após o uso excessivo de venenos agrícolas, o rio da região começou a apresentar sinais de contaminação.",
+    description:
+    "Os resíduos químicos começaram a chegar no rio da comunidade.",
 
     image:
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1200&auto=format&fit=crop",
 
-    choices: [
+    option1: {
+      text: "Criar proteção ambiental",
 
-      {
-        text: "Criar proteção ambiental e reduzir químicos",
-
-        effects: {
-          food: 5,
-          nature: 15,
-          water: 20,
-          health: 14,
-          score: 20
-        },
-
-        message:
-          "A recuperação das margens ajudou a limpar o rio e proteger a população."
+      effects: {
+        food: 5,
+        nature: 15,
+        water: 18,
+        health: 12
       },
 
-      {
-        text: "Continuar usando químicos intensivos",
+      message:
+      "A vegetação ajudou a proteger a água e recuperar o rio."
+    },
 
-        effects: {
-          food: 10,
-          nature: -20,
-          water: -25,
-          health: -18,
-          score: -5
-        },
+    option2: {
+      text: "Ignorar o problema",
 
-        message:
-          "Peixes morreram e a água ficou imprópria para consumo."
-      }
+      effects: {
+        food: 6,
+        nature: -20,
+        water: -25,
+        health: -18
+      },
 
-    ]
+      message:
+      "Peixes morreram e a água ficou imprópria para consumo."
+    }
   },
 
   {
-    title: "Solo Enfraquecido",
+    title: "Solo enfraquecido",
 
-    text:
-      "O excesso de pesticidas começou a destruir os nutrientes naturais do solo.",
-
-    image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop",
-
-    choices: [
-
-      {
-        text: "Investir em agricultura sustentável",
-
-        effects: {
-          food: 15,
-          nature: 20,
-          water: 12,
-          health: 16,
-          score: 25
-        },
-
-        message:
-          "A rotação de culturas recuperou a fertilidade do solo."
-      },
-
-      {
-        text: "Aplicar mais fertilizantes químicos",
-
-        effects: {
-          food: 8,
-          nature: -18,
-          water: -12,
-          health: -15,
-          score: -4
-        },
-
-        message:
-          "O solo ficou cada vez mais dependente de produtos químicos."
-      }
-
-    ]
-  },
-
-  {
-    title: "Saúde da Comunidade",
-
-    text:
-      "Moradores começaram a apresentar problemas de saúde relacionados à exposição aos agrotóxicos.",
+    description:
+    "O excesso de pesticidas começou a destruir os nutrientes do solo.",
 
     image:
-      "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop",
 
-    choices: [
+    option1: {
+      text: "Investir em agricultura sustentável",
 
-      {
-        text: "Produzir alimentos orgânicos",
-
-        effects: {
-          food: 12,
-          nature: 18,
-          water: 12,
-          health: 22,
-          score: 30
-        },
-
-        message:
-          "Os alimentos ficaram mais saudáveis e valorizados pela população."
+      effects: {
+        food: 15,
+        nature: 18,
+        water: 10,
+        health: 15
       },
 
-      {
-        text: "Aumentar a produção com venenos",
+      message:
+      "A rotação de culturas recuperou a fertilidade do solo."
+    },
 
-        effects: {
-          food: 18,
-          nature: -20,
-          water: -14,
-          health: -25,
-          score: 0
-        },
+    option2: {
+      text: "Aplicar mais químicos",
 
-        message:
-          "A produção cresceu temporariamente, mas aumentaram os problemas de saúde."
-      }
+      effects: {
+        food: 8,
+        nature: -18,
+        water: -12,
+        health: -16
+      },
 
-    ]
+      message:
+      "O solo ficou cada vez mais dependente de produtos químicos."
+    }
   }
 
 ];
 
-const eventTitle = document.getElementById("eventTitle");
-const eventText = document.getElementById("eventText");
-const eventImage = document.getElementById("eventImage");
+let current = 0;
 
-const choice1 = document.getElementById("choice1");
-const choice2 = document.getElementById("choice2");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const image = document.getElementById("sceneImage");
 
-const foodValue = document.getElementById("foodValue");
-const natureValue = document.getElementById("natureValue");
-const waterValue = document.getElementById("waterValue");
-const healthValue = document.getElementById("healthValue");
-const scoreValue = document.getElementById("scoreValue");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+
+const food = document.getElementById("food");
+const nature = document.getElementById("nature");
+const water = document.getElementById("water");
+const health = document.getElementById("health");
 
 const foodBar = document.getElementById("foodBar");
 const natureBar = document.getElementById("natureBar");
 const waterBar = document.getElementById("waterBar");
 const healthBar = document.getElementById("healthBar");
 
-const messageText = document.getElementById("messageText");
+const message = document.getElementById("message");
 
-const restartBtn = document.getElementById("restartBtn");
+const restart = document.getElementById("restart");
 
-let currentEvent = 0;
+function updateUI(){
 
-function limit(value) {
-  return Math.max(0, Math.min(100, value));
+  food.textContent = game.food;
+  nature.textContent = game.nature;
+  water.textContent = game.water;
+  health.textContent = game.health;
+
+  foodBar.style.width = game.food + "%";
+  natureBar.style.width = game.nature + "%";
+  waterBar.style.width = game.water + "%";
+  healthBar.style.width = game.health + "%";
 }
 
-function updateUI() {
+function limit(value){
 
-  foodValue.textContent = state.food;
-  natureValue.textContent = state.nature;
-  waterValue.textContent = state.water;
-  healthValue.textContent = state.health;
-  scoreValue.textContent = state.score;
+  if(value > 100){
+    return 100;
+  }
 
-  foodBar.style.width = `${state.food}%`;
-  natureBar.style.width = `${state.nature}%`;
-  waterBar.style.width = `${state.water}%`;
-  healthBar.style.width = `${state.health}%`;
+  if(value < 0){
+    return 0;
+  }
+
+  return value;
 }
 
-function loadEvent() {
+function loadEvent(){
 
-  if (
-    state.food <= 0 ||
-    state.nature <= 0 ||
-    state.water <= 0 ||
-    state.health <= 0
-  ) {
-    gameOver();
+  if(current >= events.length){
+
+    endGame();
     return;
   }
 
-  if (currentEvent >= events.length) {
-    victory();
-    return;
-  }
+  const event = events[current];
 
-  const event = events[currentEvent];
+  title.textContent = event.title;
 
-  eventTitle.textContent = event.title;
-  eventText.textContent = event.text;
+  description.textContent =
+  event.description;
 
-  eventImage.src = event.image;
+  image.src = event.image;
 
-  choice1.textContent = event.choices[0].text;
-  choice2.textContent = event.choices[1].text;
+  btn1.textContent =
+  event.option1.text;
 
-  choice1.onclick = () => choose(0);
-  choice2.onclick = () => choose(1);
+  btn2.textContent =
+  event.option2.text;
+
+  btn1.onclick = function(){
+    choose(event.option1);
+  };
+
+  btn2.onclick = function(){
+    choose(event.option2);
+  };
 }
 
-function choose(index) {
+function choose(option){
 
-  const event = events[currentEvent];
+  game.food =
+  limit(game.food + option.effects.food);
 
-  const selected = event.choices[index];
+  game.nature =
+  limit(game.nature + option.effects.nature);
 
-  state.food =
-    limit(state.food + selected.effects.food);
+  game.water =
+  limit(game.water + option.effects.water);
 
-  state.nature =
-    limit(state.nature + selected.effects.nature);
+  game.health =
+  limit(game.health + option.effects.health);
 
-  state.water =
-    limit(state.water + selected.effects.water);
-
-  state.health =
-    limit(state.health + selected.effects.health);
-
-  state.score += selected.effects.score;
-
-  messageText.textContent =
-    selected.message;
+  message.textContent =
+  option.message;
 
   updateUI();
 
-  currentEvent++;
+  current++;
 
-  setTimeout(() => {
+  setTimeout(function(){
     loadEvent();
-  }, 1200);
+  },1000);
 }
 
-function gameOver() {
+function endGame(){
 
-  eventTitle.textContent =
-    "☠️ Crise Ambiental";
+  title.textContent =
+  "🏆 Agricultura Sustentável";
 
-  eventText.textContent =
-    "O uso excessivo de agrotóxicos destruiu o equilíbrio ambiental e prejudicou a saúde das pessoas.";
+  description.textContent =
+  "Você aprendeu que proteger o meio ambiente é essencial para produzir alimentos saudáveis.";
 
-  eventImage.src =
-    "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop";
+  image.src =
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop";
 
-  choice1.style.display = "none";
-  choice2.style.display = "none";
+  btn1.style.display = "none";
+  btn2.style.display = "none";
 
-  messageText.textContent =
-    "Produzir alimentos exige proteger o meio ambiente.";
+  message.textContent =
+  "Os agrotóxicos podem causar danos graves ao solo, água e saúde humana.";
 }
 
-function victory() {
+restart.onclick = function(){
 
-  eventTitle.textContent =
-    "🏆 Agricultura Sustentável";
+  game.food = 70;
+  game.nature = 70;
+  game.water = 70;
+  game.health = 70;
 
-  eventText.textContent =
-    "Sua comunidade mostrou que é possível produzir alimentos saudáveis sem destruir a natureza.";
+  current = 0;
 
-  eventImage.src =
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop";
-
-  choice1.style.display = "none";
-  choice2.style.display = "none";
-
-  messageText.textContent =
-    `Pontuação Final: ${state.score}`;
-}
-
-restartBtn.addEventListener("click", () => {
-
-  state.food = 70;
-  state.nature = 70;
-  state.water = 70;
-  state.health = 70;
-  state.score = 0;
-
-  currentEvent = 0;
-
-  choice1.style.display = "block";
-  choice2.style.display = "block";
+  btn1.style.display = "block";
+  btn2.style.display = "block";
 
   updateUI();
 
   loadEvent();
 
-  messageText.textContent =
-    "Novo jogo iniciado.";
-});
+  message.textContent =
+  "Novo jogo iniciado.";
+};
 
 updateUI();
 loadEvent();
