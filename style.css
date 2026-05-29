@@ -1,13 +1,18 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
 
-  margin:0;
-  padding:20px;
-
-  font-family:Arial;
-
-  background:#0d1f16;
+  background:#102016;
 
   color:white;
+
+  font-family:Arial, Helvetica, sans-serif;
+
+  padding:20px;
 }
 
 .container{
@@ -21,7 +26,9 @@ h1{
 
   text-align:center;
 
-  color:#38d67a;
+  color:#3ce283;
+
+  margin-bottom:10px;
 }
 
 .subtitle{
@@ -31,6 +38,8 @@ h1{
   color:#cccccc;
 
   margin-bottom:20px;
+
+  line-height:1.6;
 }
 
 .main-image{
@@ -48,7 +57,7 @@ h1{
 
 .card{
 
-  background:#173727;
+  background:#1b3526;
 
   padding:25px;
 
@@ -59,14 +68,14 @@ h1{
 
 .card h2{
 
-  margin-top:0;
+  margin-bottom:15px;
 }
 
 .card p{
 
-  line-height:1.6;
-
   color:#dddddd;
+
+  line-height:1.7;
 }
 
 .buttons{
@@ -84,7 +93,7 @@ button{
 
   border:none;
 
-  padding:15px;
+  padding:16px;
 
   border-radius:12px;
 
@@ -93,6 +102,13 @@ button{
   font-size:16px;
 
   flex:1;
+
+  transition:0.3s;
+}
+
+button:hover{
+
+  transform:scale(1.03);
 }
 
 #btn1{
@@ -104,7 +120,7 @@ button{
 
 #btn2{
 
-  background:#ff5c5c;
+  background:#ff5e5e;
 
   color:white;
 }
@@ -134,7 +150,7 @@ button{
 
 .stat{
 
-  background:#173727;
+  background:#1b3526;
 
   padding:20px;
 
@@ -147,7 +163,7 @@ button{
 
 .message{
 
-  background:#173727;
+  background:#1b3526;
 
   padding:20px;
 
