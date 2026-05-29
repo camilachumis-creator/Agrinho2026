@@ -1,0 +1,352 @@
+:root {
+
+  --bg-dark: #06140d;
+  --panel: #10251b;
+  --card: rgba(21, 48, 35, 0.9);
+
+  --green: #2bd67b;
+  --green-dark: #179e57;
+
+  --blue: #4fc3f7;
+  --yellow: #ffca28;
+  --red: #ff5f5f;
+
+  --text: #f5fff8;
+  --muted: #b8d3c4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.75)
+    ),
+
+    url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1600&auto=format&fit=crop");
+
+  background-size: cover;
+  background-position: center;
+
+  color: var(--text);
+
+  padding: 20px;
+}
+
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+.game-container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.hero {
+
+  background: rgba(16, 37, 27, 0.85);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.dashboard {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+.status-card {
+
+  background: var(--card);
+
+  border-radius: 22px;
+
+  padding: 24px;
+
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.status-card h2 {
+
+  font-size: 1rem;
+
+  color: var(--muted);
+
+  margin-bottom: 10px;
+}
+
+.status-card span {
+
+  font-size: 2.2rem;
+
+  font-weight: bold;
+}
+
+.score {
+  border: 2px solid var(--green);
+}
+
+.scenario {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+
+  margin-bottom: 30px;
+}
+
+.scenario-image {
+
+  background: rgba(16, 37, 27, 0.9);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  min-height: 400px;
+}
+
+.scenario-image img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.scenario-content {
+
+  background: rgba(16, 37, 27, 0.92);
+
+  border-radius: 24px;
+
+  padding: 30px;
+}
+
+.scenario-content h2 {
+
+  font-size: 2rem;
+
+  margin-bottom: 16px;
+}
+
+.scenario-content p {
+
+  color: var(--muted);
+
+  line-height: 1.8;
+
+  font-size: 1.1rem;
+}
+
+.choices {
+
+  margin-top: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.choice-btn {
+
+  border: none;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--green),
+      var(--green-dark)
+    );
+
+  color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.choice-btn:hover {
+
+  transform: scale(1.02);
+}
+
+.danger {
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff7070,
+      #d63d3d
+    );
+}
+
+.bars-section {
+
+  background: rgba(16, 37, 27, 0.92);
+
+  padding: 28px;
+
+  border-radius: 24px;
+
+  margin-bottom: 20px;
+}
+
+.bar-item {
+  margin-bottom: 20px;
+}
+
+.bar-item label {
+
+  display: block;
+
+  margin-bottom: 8px;
+}
+
+.bar {
+
+  width: 100%;
+
+  height: 18px;
+
+  background: #08150f;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.fill {
+
+  height: 100%;
+
+  border-radius: 999px;
+
+  transition: width 0.4s ease;
+}
+
+.green {
+  background: var(--green);
+}
+
+.nature {
+  background: #00c853;
+}
+
+.blue {
+  background: var(--blue);
+}
+
+.yellow {
+  background: var(--yellow);
+}
+
+.message-box {
+
+  background: rgba(16, 37, 27, 0.92);
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  color: var(--muted);
+}
+
+.restart-area {
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 25px;
+}
+
+#restartBtn {
+
+  border: none;
+
+  padding: 16px 26px;
+
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2bd67b,
+      #179e57
+    );
+
+  color: white;
+
+  font-size: 1rem;
+
+  transition: 0.3s;
+}
+
+#restartBtn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+
+  .scenario {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+}
