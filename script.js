@@ -4,7 +4,7 @@ const events = [
     title: "Insetos na plantação",
 
     text:
-    "Os agricultores perceberam insetos atacando as verduras.",
+    "Os agricultores perceberam insetos atacando os alimentos.",
 
     image:
     "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop",
@@ -30,7 +30,7 @@ const events = [
       health: -22,
 
       message:
-      "Os venenos aumentaram a produção temporariamente, mas prejudicaram solo e água."
+      "Os agrotóxicos aumentaram a produção temporariamente, mas prejudicaram solo, água e saúde."
     }
   },
 
@@ -98,7 +98,7 @@ const events = [
       health: -16,
 
       message:
-      "O solo ficou cada vez mais dependente de produtos químicos."
+      "O solo ficou dependente de produtos químicos."
     }
   }
 
@@ -129,10 +129,10 @@ const restart = document.getElementById("restart");
 
 function updateStats(){
 
-  foodText.innerHTML = food;
-  natureText.innerHTML = nature;
-  waterText.innerHTML = water;
-  healthText.innerHTML = health;
+  foodText.textContent = food;
+  natureText.textContent = nature;
+  waterText.textContent = water;
+  healthText.textContent = health;
 }
 
 function loadEvent(){
@@ -145,12 +145,15 @@ function loadEvent(){
 
   const event = events[currentEvent];
 
-  title.innerHTML = event.title;
-  text.innerHTML = event.text;
+  title.textContent = event.title;
+
+  text.textContent = event.text;
+
   image.src = event.image;
 
-  btn1.innerHTML = event.option1.text;
-  btn2.innerHTML = event.option2.text;
+  btn1.textContent = event.option1.text;
+
+  btn2.textContent = event.option2.text;
 
   btn1.onclick = function(){
     choose(event.option1);
@@ -180,7 +183,7 @@ function choose(option){
 
   updateStats();
 
-  message.innerHTML = option.message;
+  message.textContent = option.message;
 
   currentEvent++;
 
@@ -193,11 +196,11 @@ function choose(option){
 
 function finishGame(){
 
-  title.innerHTML =
+  title.textContent =
   "🏆 Agricultura Sustentável";
 
-  text.innerHTML =
-  "Você aprendeu que o uso excessivo de agrotóxicos prejudica a saúde, a água e o meio ambiente.";
+  text.textContent =
+  "Você aprendeu que o uso excessivo de agrotóxicos prejudica o meio ambiente e a saúde humana.";
 
   image.src =
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop";
@@ -205,7 +208,7 @@ function finishGame(){
   btn1.style.display = "none";
   btn2.style.display = "none";
 
-  message.innerHTML =
+  message.textContent =
   "Produzir alimentos exige equilíbrio com a natureza.";
 }
 
@@ -225,7 +228,7 @@ restart.onclick = function(){
 
   loadEvent();
 
-  message.innerHTML =
+  message.textContent =
   "Novo jogo iniciado.";
 };
 
