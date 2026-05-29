@@ -1,56 +1,44 @@
-const game = {
-
-  food: 70,
-  nature: 70,
-  water: 70,
-  health: 70
-};
-
 const events = [
 
   {
-    title: "Insetos atacando a plantação",
+    title: "Insetos na plantação",
 
-    description:
-    "Os agricultores descobriram pragas nas verduras da comunidade.",
+    text:
+    "Os agricultores perceberam insetos atacando as verduras.",
 
     image:
     "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop",
 
     option1: {
-      text: "Usar controle biológico natural",
+      text: "Usar controle biológico",
 
-      effects: {
-        food: 8,
-        nature: 12,
-        water: 8,
-        health: 10
-      },
+      food: 8,
+      nature: 10,
+      water: 8,
+      health: 10,
 
       message:
-      "Métodos naturais protegeram a plantação sem contaminar o ambiente."
+      "Métodos naturais protegeram os alimentos sem contaminar o ambiente."
     },
 
     option2: {
-      text: "Aplicar agrotóxicos químicos",
+      text: "Usar agrotóxicos químicos",
 
-      effects: {
-        food: 12,
-        nature: -20,
-        water: -18,
-        health: -22
-      },
+      food: 12,
+      nature: -20,
+      water: -18,
+      health: -22,
 
       message:
-      "Os venenos aumentaram a produção rapidamente, mas contaminaram solo e água."
+      "Os venenos aumentaram a produção temporariamente, mas prejudicaram solo e água."
     }
   },
 
   {
     title: "Contaminação do rio",
 
-    description:
-    "Os resíduos químicos começaram a chegar no rio da comunidade.",
+    text:
+    "Resíduos químicos começaram a chegar no rio da comunidade.",
 
     image:
     "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1200&auto=format&fit=crop",
@@ -58,37 +46,33 @@ const events = [
     option1: {
       text: "Criar proteção ambiental",
 
-      effects: {
-        food: 5,
-        nature: 15,
-        water: 18,
-        health: 12
-      },
+      food: 5,
+      nature: 15,
+      water: 18,
+      health: 12,
 
       message:
-      "A vegetação ajudou a proteger a água e recuperar o rio."
+      "A vegetação protegeu o rio e melhorou a qualidade da água."
     },
 
     option2: {
       text: "Ignorar o problema",
 
-      effects: {
-        food: 6,
-        nature: -20,
-        water: -25,
-        health: -18
-      },
+      food: 8,
+      nature: -20,
+      water: -25,
+      health: -18,
 
       message:
-      "Peixes morreram e a água ficou imprópria para consumo."
+      "Peixes morreram e a água ficou contaminada."
     }
   },
 
   {
     title: "Solo enfraquecido",
 
-    description:
-    "O excesso de pesticidas começou a destruir os nutrientes do solo.",
+    text:
+    "O excesso de pesticidas está destruindo os nutrientes do solo.",
 
     image:
     "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop",
@@ -96,12 +80,10 @@ const events = [
     option1: {
       text: "Investir em agricultura sustentável",
 
-      effects: {
-        food: 15,
-        nature: 18,
-        water: 10,
-        health: 15
-      },
+      food: 15,
+      nature: 18,
+      water: 10,
+      health: 15,
 
       message:
       "A rotação de culturas recuperou a fertilidade do solo."
@@ -110,12 +92,10 @@ const events = [
     option2: {
       text: "Aplicar mais químicos",
 
-      effects: {
-        food: 8,
-        nature: -18,
-        water: -12,
-        health: -16
-      },
+      food: 8,
+      nature: -18,
+      water: -12,
+      health: -16,
 
       message:
       "O solo ficou cada vez mais dependente de produtos químicos."
@@ -124,77 +104,53 @@ const events = [
 
 ];
 
-let current = 0;
+let currentEvent = 0;
+
+let food = 70;
+let nature = 70;
+let water = 70;
+let health = 70;
 
 const title = document.getElementById("title");
-const description = document.getElementById("description");
-const image = document.getElementById("sceneImage");
+const text = document.getElementById("text");
+const image = document.getElementById("gameImage");
 
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 
-const food = document.getElementById("food");
-const nature = document.getElementById("nature");
-const water = document.getElementById("water");
-const health = document.getElementById("health");
-
-const foodBar = document.getElementById("foodBar");
-const natureBar = document.getElementById("natureBar");
-const waterBar = document.getElementById("waterBar");
-const healthBar = document.getElementById("healthBar");
+const foodText = document.getElementById("food");
+const natureText = document.getElementById("nature");
+const waterText = document.getElementById("water");
+const healthText = document.getElementById("health");
 
 const message = document.getElementById("message");
 
 const restart = document.getElementById("restart");
 
-function updateUI(){
+function updateStats(){
 
-  food.textContent = game.food;
-  nature.textContent = game.nature;
-  water.textContent = game.water;
-  health.textContent = game.health;
-
-  foodBar.style.width = game.food + "%";
-  natureBar.style.width = game.nature + "%";
-  waterBar.style.width = game.water + "%";
-  healthBar.style.width = game.health + "%";
-}
-
-function limit(value){
-
-  if(value > 100){
-    return 100;
-  }
-
-  if(value < 0){
-    return 0;
-  }
-
-  return value;
+  foodText.innerHTML = food;
+  natureText.innerHTML = nature;
+  waterText.innerHTML = water;
+  healthText.innerHTML = health;
 }
 
 function loadEvent(){
 
-  if(current >= events.length){
+  if(currentEvent >= events.length){
 
-    endGame();
+    finishGame();
     return;
   }
 
-  const event = events[current];
+  const event = events[currentEvent];
 
-  title.textContent = event.title;
-
-  description.textContent =
-  event.description;
-
+  title.innerHTML = event.title;
+  text.innerHTML = event.text;
   image.src = event.image;
 
-  btn1.textContent =
-  event.option1.text;
-
-  btn2.textContent =
-  event.option2.text;
+  btn1.innerHTML = event.option1.text;
+  btn2.innerHTML = event.option2.text;
 
   btn1.onclick = function(){
     choose(event.option1);
@@ -207,37 +163,41 @@ function loadEvent(){
 
 function choose(option){
 
-  game.food =
-  limit(game.food + option.effects.food);
+  food += option.food;
+  nature += option.nature;
+  water += option.water;
+  health += option.health;
 
-  game.nature =
-  limit(game.nature + option.effects.nature);
+  if(food > 100) food = 100;
+  if(nature > 100) nature = 100;
+  if(water > 100) water = 100;
+  if(health > 100) health = 100;
 
-  game.water =
-  limit(game.water + option.effects.water);
+  if(food < 0) food = 0;
+  if(nature < 0) nature = 0;
+  if(water < 0) water = 0;
+  if(health < 0) health = 0;
 
-  game.health =
-  limit(game.health + option.effects.health);
+  updateStats();
 
-  message.textContent =
-  option.message;
+  message.innerHTML = option.message;
 
-  updateUI();
-
-  current++;
+  currentEvent++;
 
   setTimeout(function(){
+
     loadEvent();
+
   },1000);
 }
 
-function endGame(){
+function finishGame(){
 
-  title.textContent =
+  title.innerHTML =
   "🏆 Agricultura Sustentável";
 
-  description.textContent =
-  "Você aprendeu que proteger o meio ambiente é essencial para produzir alimentos saudáveis.";
+  text.innerHTML =
+  "Você aprendeu que o uso excessivo de agrotóxicos prejudica a saúde, a água e o meio ambiente.";
 
   image.src =
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop";
@@ -245,29 +205,29 @@ function endGame(){
   btn1.style.display = "none";
   btn2.style.display = "none";
 
-  message.textContent =
-  "Os agrotóxicos podem causar danos graves ao solo, água e saúde humana.";
+  message.innerHTML =
+  "Produzir alimentos exige equilíbrio com a natureza.";
 }
 
 restart.onclick = function(){
 
-  game.food = 70;
-  game.nature = 70;
-  game.water = 70;
-  game.health = 70;
+  currentEvent = 0;
 
-  current = 0;
+  food = 70;
+  nature = 70;
+  water = 70;
+  health = 70;
 
   btn1.style.display = "block";
   btn2.style.display = "block";
 
-  updateUI();
+  updateStats();
 
   loadEvent();
 
-  message.textContent =
+  message.innerHTML =
   "Novo jogo iniciado.";
 };
 
-updateUI();
+updateStats();
 loadEvent();
