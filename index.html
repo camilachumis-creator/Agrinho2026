@@ -1,139 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AgroFuturo Sustentável</title>
+  <title>AgroFuturo</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main class="container">
+  <div class="container">
 
-    <header class="top">
-      <h1>🌱 AgroFuturo Sustentável</h1>
+    <h1>🌱 AgroFuturo Sustentável</h1>
 
-      <p>
-        Aprenda como os agrotóxicos prejudicam o meio ambiente,
-        a saúde das pessoas e a produção de alimentos.
+    <p class="subtitle">
+      Aprenda como os agrotóxicos afetam o meio ambiente,
+      a água, os alimentos e a saúde das pessoas.
+    </p>
+
+    <img
+      id="gameImage"
+      class="main-image"
+      src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+    >
+
+    <div class="card">
+
+      <h2 id="title">
+        Bem-vindo ao AgroFuturo
+      </h2>
+
+      <p id="text">
+        Sua comunidade precisa cultivar alimentos sem destruir a natureza.
       </p>
-    </header>
 
-    <section class="game-area">
+      <div class="buttons">
 
-      <div class="image-box">
-        <img
-          id="sceneImage"
-          src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop"
-          alt="Agricultura sustentável"
-        >
-      </div>
+        <button id="btn1">
+          Escolha 1
+        </button>
 
-      <div class="content-box">
-
-        <h2 id="title">
-          Bem-vindo ao AgroFuturo
-        </h2>
-
-        <p id="description">
-          Sua comunidade rural precisa produzir alimentos
-          sem destruir a natureza.
-        </p>
-
-        <div class="buttons">
-
-          <button id="btn1">
-            Escolha 1
-          </button>
-
-          <button id="btn2" class="danger">
-            Escolha 2
-          </button>
-
-        </div>
+        <button id="btn2" class="danger">
+          Escolha 2
+        </button>
 
       </div>
 
-    </section>
+    </div>
 
-    <section class="stats">
+    <div class="stats">
 
-      <div class="card">
-        <h3>🌾 Produção</h3>
+      <div class="stat">
+        🌾 Produção:
         <span id="food">70</span>
       </div>
 
-      <div class="card">
-        <h3>🌳 Natureza</h3>
+      <div class="stat">
+        🌳 Natureza:
         <span id="nature">70</span>
       </div>
 
-      <div class="card">
-        <h3>💧 Água</h3>
+      <div class="stat">
+        💧 Água:
         <span id="water">70</span>
       </div>
 
-      <div class="card">
-        <h3>❤️ Saúde</h3>
+      <div class="stat">
+        ❤️ Saúde:
         <span id="health">70</span>
       </div>
 
-    </section>
-
-    <section class="bars">
-
-      <div class="bar-group">
-        <label>Produção</label>
-
-        <div class="bar">
-          <div class="fill green" id="foodBar"></div>
-        </div>
-      </div>
-
-      <div class="bar-group">
-        <label>Natureza</label>
-
-        <div class="bar">
-          <div class="fill nature" id="natureBar"></div>
-        </div>
-      </div>
-
-      <div class="bar-group">
-        <label>Água</label>
-
-        <div class="bar">
-          <div class="fill blue" id="waterBar"></div>
-        </div>
-      </div>
-
-      <div class="bar-group">
-        <label>Saúde</label>
-
-        <div class="bar">
-          <div class="fill yellow" id="healthBar"></div>
-        </div>
-      </div>
-
-    </section>
-
-    <div class="message-box">
-      <p id="message">
-        Escolhas sustentáveis protegem vidas.
-      </p>
     </div>
 
-    <div class="restart-box">
-      <button id="restart">
-        🔄 Reiniciar
-      </button>
+    <div class="message" id="message">
+      Faça escolhas sustentáveis.
     </div>
 
-  </main>
+    <button id="restart" class="restart">
+      🔄 Reiniciar
+    </button>
+
+  </div>
 
   <script src="script.js"></script>
 
 </body>
-</html>>
+</html>
