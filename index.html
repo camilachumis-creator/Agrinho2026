@@ -1,91 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>AgroFuturo Sustentável</title>
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="background-overlay"></div>
+  <main class="container">
 
-  <main class="game-container">
+    <header class="top">
+      <h1>🌱 AgroFuturo Sustentável</h1>
 
-    <header class="hero">
-
-      <div class="hero-content">
-
-        <h1>🌱 AgroFuturo Sustentável</h1>
-
-        <p>
-          Aprenda como escolhas agrícolas afetam o meio ambiente,
-          a saúde das pessoas e a qualidade dos alimentos.
-        </p>
-
-      </div>
-
+      <p>
+        Aprenda como os agrotóxicos prejudicam o meio ambiente,
+        a saúde das pessoas e a produção de alimentos.
+      </p>
     </header>
 
-    <section class="dashboard">
+    <section class="game-area">
 
-      <div class="status-card">
-        <h2>🌾 Produção</h2>
-        <span id="foodValue">70</span>
-      </div>
-
-      <div class="status-card">
-        <h2>🌳 Natureza</h2>
-        <span id="natureValue">70</span>
-      </div>
-
-      <div class="status-card">
-        <h2>💧 Água</h2>
-        <span id="waterValue">70</span>
-      </div>
-
-      <div class="status-card">
-        <h2>❤️ Saúde</h2>
-        <span id="healthValue">70</span>
-      </div>
-
-      <div class="status-card score">
-        <h2>⭐ Pontos</h2>
-        <span id="scoreValue">0</span>
-      </div>
-
-    </section>
-
-    <section class="scenario">
-
-      <div class="scenario-image">
+      <div class="image-box">
         <img
-          id="eventImage"
+          id="sceneImage"
           src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop"
-          alt="Plantação agrícola sustentável"
-        />
+          alt="Agricultura sustentável"
+        >
       </div>
 
-      <div class="scenario-content">
+      <div class="content-box">
 
-        <h2 id="eventTitle">
+        <h2 id="title">
           Bem-vindo ao AgroFuturo
         </h2>
 
-        <p id="eventText">
-          Sua comunidade rural precisa cultivar alimentos saudáveis
+        <p id="description">
+          Sua comunidade rural precisa produzir alimentos
           sem destruir a natureza.
         </p>
 
-        <div class="choices">
+        <div class="buttons">
 
-          <button id="choice1" class="choice-btn">
+          <button id="btn1">
             Escolha 1
           </button>
 
-          <button id="choice2" class="choice-btn danger">
+          <button id="btn2" class="danger">
             Escolha 2
           </button>
 
@@ -95,53 +59,75 @@
 
     </section>
 
-    <section class="bars-section">
+    <section class="stats">
 
-      <div class="bar-item">
-        <label>Produção de Alimentos</label>
+      <div class="card">
+        <h3>🌾 Produção</h3>
+        <span id="food">70</span>
+      </div>
+
+      <div class="card">
+        <h3>🌳 Natureza</h3>
+        <span id="nature">70</span>
+      </div>
+
+      <div class="card">
+        <h3>💧 Água</h3>
+        <span id="water">70</span>
+      </div>
+
+      <div class="card">
+        <h3>❤️ Saúde</h3>
+        <span id="health">70</span>
+      </div>
+
+    </section>
+
+    <section class="bars">
+
+      <div class="bar-group">
+        <label>Produção</label>
 
         <div class="bar">
-          <div id="foodBar" class="fill green"></div>
+          <div class="fill green" id="foodBar"></div>
         </div>
       </div>
 
-      <div class="bar-item">
-        <label>Meio Ambiente</label>
+      <div class="bar-group">
+        <label>Natureza</label>
 
         <div class="bar">
-          <div id="natureBar" class="fill nature"></div>
+          <div class="fill nature" id="natureBar"></div>
         </div>
       </div>
 
-      <div class="bar-item">
-        <label>Qualidade da Água</label>
+      <div class="bar-group">
+        <label>Água</label>
 
         <div class="bar">
-          <div id="waterBar" class="fill blue"></div>
+          <div class="fill blue" id="waterBar"></div>
         </div>
       </div>
 
-      <div class="bar-item">
-        <label>Saúde da População</label>
+      <div class="bar-group">
+        <label>Saúde</label>
 
         <div class="bar">
-          <div id="healthBar" class="fill yellow"></div>
+          <div class="fill yellow" id="healthBar"></div>
         </div>
       </div>
 
     </section>
 
-    <section class="message-box">
-
-      <p id="messageText">
-        Decisões sustentáveis ajudam o planeta e as pessoas.
+    <div class="message-box">
+      <p id="message">
+        Escolhas sustentáveis protegem vidas.
       </p>
+    </div>
 
-    </section>
-
-    <div class="restart-area">
-      <button id="restartBtn">
-        🔄 Reiniciar Jogo
+    <div class="restart-box">
+      <button id="restart">
+        🔄 Reiniciar
       </button>
     </div>
 
@@ -150,4 +136,4 @@
   <script src="script.js"></script>
 
 </body>
-</html>
+</html>>
