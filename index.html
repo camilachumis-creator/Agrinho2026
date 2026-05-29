@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>AgroFuturo Sustentável</title>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="background-overlay"></div>
+
+  <main class="game-container">
+
+    <header class="hero">
+
+      <div class="hero-content">
+
+        <h1>🌱 AgroFuturo Sustentável</h1>
+
+        <p>
+          Aprenda como escolhas agrícolas afetam o meio ambiente,
+          a saúde das pessoas e a qualidade dos alimentos.
+        </p>
+
+      </div>
+
+    </header>
+
+    <section class="dashboard">
+
+      <div class="status-card">
+        <h2>🌾 Produção</h2>
+        <span id="foodValue">70</span>
+      </div>
+
+      <div class="status-card">
+        <h2>🌳 Natureza</h2>
+        <span id="natureValue">70</span>
+      </div>
+
+      <div class="status-card">
+        <h2>💧 Água</h2>
+        <span id="waterValue">70</span>
+      </div>
+
+      <div class="status-card">
+        <h2>❤️ Saúde</h2>
+        <span id="healthValue">70</span>
+      </div>
+
+      <div class="status-card score">
+        <h2>⭐ Pontos</h2>
+        <span id="scoreValue">0</span>
+      </div>
+
+    </section>
+
+    <section class="scenario">
+
+      <div class="scenario-image">
+        <img
+          id="eventImage"
+          src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop"
+          alt="Plantação agrícola sustentável"
+        />
+      </div>
+
+      <div class="scenario-content">
+
+        <h2 id="eventTitle">
+          Bem-vindo ao AgroFuturo
+        </h2>
+
+        <p id="eventText">
+          Sua comunidade rural precisa cultivar alimentos saudáveis
+          sem destruir a natureza.
+        </p>
+
+        <div class="choices">
+
+          <button id="choice1" class="choice-btn">
+            Escolha 1
+          </button>
+
+          <button id="choice2" class="choice-btn danger">
+            Escolha 2
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="bars-section">
+
+      <div class="bar-item">
+        <label>Produção de Alimentos</label>
+
+        <div class="bar">
+          <div id="foodBar" class="fill green"></div>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <label>Meio Ambiente</label>
+
+        <div class="bar">
+          <div id="natureBar" class="fill nature"></div>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <label>Qualidade da Água</label>
+
+        <div class="bar">
+          <div id="waterBar" class="fill blue"></div>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <label>Saúde da População</label>
+
+        <div class="bar">
+          <div id="healthBar" class="fill yellow"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="message-box">
+
+      <p id="messageText">
+        Decisões sustentáveis ajudam o planeta e as pessoas.
+      </p>
+
+    </section>
+
+    <div class="restart-area">
+      <button id="restartBtn">
+        🔄 Reiniciar Jogo
+      </button>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
